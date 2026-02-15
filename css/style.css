@@ -3,20 +3,20 @@
    =================================== */
 :root {
     /* Paleta de Colores Minimalista */
-    --primary-color: #090F47;
-    /* Azul oscuro - Color principal */
-    --secondary-color: #364257;
-    /* Gris azulado - Acento oscuro */
+    --primary-color: #02155E;
+    /* Azul Noche - Color principal elegante */
+    --secondary-color: #2C3E50;
+    /* Gris azulado intenso (más oscuro) */
     --accent-color: #DEBFA0;
     /* Crema/Beige - Acento cálido */
     --white-color: #FFFFFF;
     /* Blanco puro */
 
     /* Variaciones de colores */
-    --primary-dark: #060a30;
-    --primary-light: #1a2570;
-    --secondary-dark: #2a3342;
-    --secondary-light: #4a5568;
+    --primary-dark: #010a30;
+    --primary-light: #0d1e66;
+    --secondary-dark: #1a252f;
+    --secondary-light: #34495e;
     --accent-dark: #c9a885;
     --accent-light: #e8d4bb;
 
@@ -27,8 +27,8 @@
     /* Gris claro para contraste */
     --bg-white: #FFFFFF;
     /* Blanco puro para tarjetas */
-    --bg-dark: #364257;
-    /* Gris azulado para footer */
+    --bg-dark: #090F47;
+    /* Azul oscuro principal para footer */
     --bg-accent: #DEBFA0;
     /* Crema para acentos */
     --bg-accent-light: #F8F3ED;
@@ -43,8 +43,8 @@
     /* Gris claro */
     --text-light: #FFFFFF;
     /* Texto claro para fondos oscuros */
-    --text-on-accent: #364257;
-    /* Texto sobre fondo crema */
+    --text-on-accent: #090F47;
+    /* Azul principal sobre fondo crema */
 
     /* Bordes minimalistas */
     --border-color: #e5e7eb;
@@ -142,7 +142,8 @@ button {
 
 /* Texto con color de acento */
 .accent-text {
-    color: var(--secondary-color);
+    color: var(--accent-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     font-weight: 600;
 }
 
@@ -177,7 +178,9 @@ button {
 .logo {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--white-color);
+    /* Blanco elegante */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     letter-spacing: -0.02em;
     transition: color var(--transition-normal);
 }
@@ -289,23 +292,32 @@ button {
     justify-content: center;
     position: relative;
     padding: var(--spacing-xl) 0;
-    background: var(--bg-primary);
+    /* Integrar degradado oscuro (negro/azul profundo) y imagen */
+    background-image:
+        linear-gradient(135deg,
+            rgba(0, 0, 0, 0.92) 0%,
+            rgba(9, 15, 71, 0.85) 50%,
+            rgba(0, 0, 0, 0.92) 100%),
+        url('../assets/images/espectacular.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    /* Asegurar que nada se salga del contenedor */
 }
 
 .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(222, 191, 160, 0.08) 0%, transparent 50%);
-    z-index: -1;
+    display: none;
+    /* Ya no es necesario, integrado en .hero */
 }
 
 .hero-content {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
     animation: fadeInUp 1s ease;
 }
 
@@ -315,17 +327,19 @@ button {
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
     letter-spacing: -0.02em;
-    color: var(--text-primary);
+    color: var(--text-light);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-description {
-    font-size: var(--font-size-md);
-    color: var(--text-secondary);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: var(--spacing-lg);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.8;
+    line-height: 1.6;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
@@ -403,6 +417,16 @@ section {
     padding: var(--spacing-xl) 0;
 }
 
+/* Títulos y subtítulos con color principal */
+.services .section-title,
+.services .service-title {
+    color: var(--primary-color);
+}
+
+.services .section-description {
+    color: var(--text-secondary);
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -432,7 +456,7 @@ section {
     align-items: center;
     justify-content: center;
     margin-bottom: var(--spacing-md);
-    color: var(--secondary-color);
+    color: var(--primary-color);
     border: 2px solid var(--accent-color);
 }
 
@@ -469,9 +493,16 @@ section {
     margin-top: var(--spacing-md);
 }
 
+/* Títulos en sección Nosotros */
+.features .section-title,
+.features h4 {
+    color: var(--primary-color);
+}
+
 .feature-item {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
     align-items: flex-start;
 }
 
@@ -520,6 +551,12 @@ section {
 .testimonials {
     background: var(--bg-white);
     padding: var(--spacing-xl) 0;
+}
+
+/* Títulos en sección Galería */
+.testimonials .section-title,
+.testimonial-card h4 {
+    color: var(--primary-color);
 }
 
 .testimonials-grid {
@@ -593,10 +630,22 @@ section {
     padding: var(--spacing-xl) 0;
 }
 
+/* Títulos en sección Contacto */
+.contact .section-title,
+.contact-details h4 {
+    color: var(--primary-color);
+}
+
 .contact-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: var(--spacing-lg);
+}
+
+/* Títulos en sección Galería */
+.testimonials .section-title,
+.testimonial-card h4 {
+    color: var(--primary-color);
 }
 
 .contact-details {
@@ -604,6 +653,12 @@ section {
     flex-direction: column;
     gap: var(--spacing-md);
     margin-top: var(--spacing-md);
+}
+
+/* Títulos en sección Contacto */
+.contact .section-title,
+.contact-details h4 {
+    color: var(--primary-color);
 }
 
 .contact-item {
@@ -679,10 +734,12 @@ section {
    FOOTER
    =================================== */
 .footer {
-    background: var(--bg-dark);
-    padding: var(--spacing-lg) 0 var(--spacing-md);
+    background: var(--secondary-color);
+    /* Mismo color que el header */
+    padding: var(--spacing-xl) 0 var(--spacing-md);
     border-top: 1px solid var(--border-color);
     color: var(--text-light);
+    margin-top: auto;
 }
 
 .footer-content {
@@ -700,7 +757,9 @@ section {
 .footer-logo {
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--white-color);
+    /* Blanco elegante igual que header */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .footer-section p,
