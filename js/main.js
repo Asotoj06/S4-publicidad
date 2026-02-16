@@ -26,12 +26,23 @@ function initializeEventListeners() {
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
+        const servicesSection = document.getElementById('servicios');
 
         // Agregar clase 'scrolled' cuando se hace scroll
         if (currentScroll > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
+        }
+
+        // Cambiar color al llegar a la sección de servicios
+        if (servicesSection) {
+            const servicesPosition = servicesSection.offsetTop - navbar.offsetHeight;
+            if (currentScroll >= servicesPosition) {
+                navbar.classList.add('scrolled-dark');
+            } else {
+                navbar.classList.remove('scrolled-dark');
+            }
         }
 
         lastScroll = currentScroll;
