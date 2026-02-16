@@ -898,16 +898,21 @@ section {
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: 0;
         right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100%;
         background: rgba(15, 15, 35, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
-        padding: var(--spacing-md);
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-xl) var(--spacing-md);
         transform: translateX(100%);
         transition: transform var(--transition-normal);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -916,6 +921,8 @@ section {
 
     .menu-toggle {
         display: flex;
+        z-index: 1001;
+        position: relative;
     }
 
     .menu-toggle.active span:nth-child(1) {
