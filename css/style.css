@@ -7,8 +7,8 @@
     /* Azul Noche - Color principal elegante */
     --secondary-color: #2C3E50;
     /* Gris azulado intenso (más oscuro) */
-    --accent-color: #DEBFA0;
-    /* Crema/Beige - Acento cálido */
+    --accent-color: #40E0D0;
+    /* Turquesa - Acento fresco y vibrante */
     --white-color: #FFFFFF;
     /* Blanco puro */
 
@@ -17,8 +17,10 @@
     --primary-light: #0d1e66;
     --secondary-dark: #1a252f;
     --secondary-light: #34495e;
-    --accent-dark: #c9a885;
-    --accent-light: #e8d4bb;
+    --accent-dark: #20B2AA;
+    /* Turquesa oscuro */
+    --accent-light: #AFEEEE;
+    /* Turquesa claro */
 
     /* Colores de fondo - Minimalista */
     --bg-primary: #FAFAFA;
@@ -29,10 +31,10 @@
     /* Blanco puro para tarjetas */
     --bg-dark: #090F47;
     /* Azul oscuro principal para footer */
-    --bg-accent: #DEBFA0;
-    /* Crema para acentos */
-    --bg-accent-light: #F8F3ED;
-    /* Crema muy claro */
+    --bg-accent: #40E0D0;
+    /* Turquesa para acentos */
+    --bg-accent-light: #E0FFFF;
+    /* Turquesa muy claro */
 
     /* Colores de texto */
     --text-primary: #1a1a1a;
@@ -43,19 +45,19 @@
     /* Gris claro */
     --text-light: #FFFFFF;
     /* Texto claro para fondos oscuros */
-    --text-on-accent: #090F47;
-    /* Azul principal sobre fondo crema */
+    --text-on-accent: #02155E;
+    /* Azul principal sobre fondo turquesa */
 
     /* Bordes minimalistas */
     --border-color: #e5e7eb;
     --border-light: #f3f4f6;
-    --border-accent: #DEBFA0;
+    --border-accent: #40E0D0;
 
     /* Sombras sutiles */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --shadow-accent: 0 4px 12px rgba(222, 191, 160, 0.2);
+    --shadow-accent: 0 4px 12px rgba(64, 224, 208, 0.2);
 
     /* Espaciado */
     --spacing-xs: 0.5rem;
@@ -65,7 +67,11 @@
     --spacing-xl: 6rem;
 
     /* Tipografía */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-primary: 'Inter',
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        sans-serif;
     --font-size-xs: 0.875rem;
     --font-size-sm: 1rem;
     --font-size-md: 1.125rem;
@@ -158,7 +164,7 @@ button {
     z-index: 1000;
     padding: var(--spacing-sm) 0;
     background: var(--secondary-color);
-    border-bottom: 1px solid rgba(222, 191, 160, 0.2);
+    border-bottom: 1px solid rgba(64, 224, 208, 0.2);
     transition: all var(--transition-normal);
     box-shadow: var(--shadow-md);
 }
@@ -187,6 +193,21 @@ button {
 
 .logo:hover {
     color: var(--accent-light);
+}
+
+.logo-img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+.footer-logo-img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-menu {
@@ -722,7 +743,7 @@ section {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(222, 191, 160, 0.2);
+    box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.2);
 }
 
 .form-group textarea {
@@ -788,8 +809,8 @@ section {
 .social-links a {
     width: 40px;
     height: 40px;
-    background: rgba(222, 191, 160, 0.15);
-    border: 1px solid rgba(222, 191, 160, 0.3);
+    background: rgba(64, 224, 208, 0.15);
+    border: 1px solid rgba(64, 224, 208, 0.3);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -815,7 +836,7 @@ section {
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(222, 191, 160, 0.3);
+    border-top: 1px solid rgba(64, 224, 208, 0.3);
     color: var(--text-light);
     font-size: var(--font-size-xs);
     opacity: 0.8;
